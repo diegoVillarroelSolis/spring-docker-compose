@@ -13,8 +13,8 @@ services:
   spring-boot-jpa-app:
     image: spring-boot-jpa-image
     build:
-      context: ./spring-docker-compose
-      dockerfile: ./spring-docker-compose/Dockerfile
+      context: ./
+      dockerfile: Dockerfile
     depends_on:
       - mysql-docker-container
     ports:
@@ -25,7 +25,7 @@ services:
     image: my-angular-app
     build:
       context: ./angular-docker
-      dockerfile: ./angular-docker/Dockerfile
+      dockerfile: Dockerfile
     depends_on:
       - spring-boot-jpa-app
     ports:
