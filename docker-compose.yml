@@ -1,17 +1,15 @@
-version: '3'
+version: "3"
 
 services:
   mysql-docker-container:
-    image: mysql:latest
+    image: mysql:5.7.22
     environment:
       - MYSQL_ROOT_PASSWORD=root123
       - MYSQL_DATABASE=spring_app_db
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root123
+      - MYSQL_USER=app_user
+      - MYSQL_PASSWORD=test123
     volumes:
       - /data/mysql
-    ports:
-      - 2012:3306
   spring-boot-jpa-app:
     image: spring-boot-jpa-image
     build:
@@ -23,3 +21,4 @@ services:
       - 8087:8080
     volumes:
       - /data/spring-boot-app
+
